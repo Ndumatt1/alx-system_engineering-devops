@@ -1,1 +1,1 @@
-betty_in_my_directory
+delete_file
