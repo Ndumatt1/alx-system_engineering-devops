@@ -1,1 +1,1 @@
-first_directory
+betty_in_my_directory
