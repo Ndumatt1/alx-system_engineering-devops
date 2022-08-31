@@ -1,1 +1,1 @@
-display_content_list
+no_place_like_home
