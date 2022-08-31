@@ -1,1 +1,1 @@
-delete_file
+file_type
