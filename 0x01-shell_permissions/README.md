@@ -1,1 +1,1 @@
-permission_to_everybody
+file permission
