@@ -1,1 +1,1 @@
-display content of /etc/passwd
+list_two_files
