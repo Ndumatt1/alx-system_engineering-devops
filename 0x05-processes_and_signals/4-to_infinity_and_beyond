@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script displays "To infinity and beyond indefinitely"
+
+no_increase=0
+while [ $no_increase -lt 10 ]
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
