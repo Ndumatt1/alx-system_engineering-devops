@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This script displays the visitor IP along with the HTTPS status code from the Apache log file
 
-path="/mnt/c/Users/Ndubuisi-pc/Downloads/apache-access (3).log"
+path="/mnt/c/Users/Ndubuisi-pc/Downloads/apache-access (4).log"
 
 awk '{print $1 " " $9}' "$path"
