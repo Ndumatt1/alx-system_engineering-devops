@@ -1,5 +1,5 @@
 # Configures server to use private key ~/.ssh/school
-file { '/home/.ssh/config':
+file { '/etc/ssh/ssh_config':
     ensure  => file,
 	mode    => '0600',
 	content => "
