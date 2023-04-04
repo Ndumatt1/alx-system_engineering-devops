@@ -31,8 +31,7 @@ frontend http-in
 
 backend servers
 		balance	roundrobin
-		server	149853-web-01:80 check
-		server	149853-web-02:80 check" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
+		server	149853-web-01 54.144.156.217:80 check
+		server	149853-web-02 18.207.234.44:80 check" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
 
-sudo service haproxy enable
-sudo service haproxy start
+sudo service haproxy restart
