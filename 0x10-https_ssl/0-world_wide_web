@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# This script dispays information about subdomains
+
+web () {
+    record_type=$(dig "$1.$2" | awk "/^$1.$2/ {print \$4}")
+	ip_address=$(dig "$1.$2" | awk "/^$1.$2/ {print \$5}")
+	format="The subdomain $1 is a $record_type record and points to $ip_address"
+	echo "$format"
+}
+
+
+if [[ $# -eq 1 ]];
+then
+	web "www" "$1"
+	web "lb-01" "$1"
+	web "web-01" "$1"
+	web "web-02" "$1"
+
+elif [[ $# -eq 2 ]];
+then
+	web "$2" "$1"
+fi
