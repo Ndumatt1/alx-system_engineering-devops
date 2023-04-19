@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script creates a mysqldump file to backup database
+mysqldump -uroot -p"$1" --all-databases > backup.sql
+current_time=$(date +"%d-%m-%Y")
+tar -czvf "$current_time".tar.gz backup.sql
