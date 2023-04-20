@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # This script changes the user of nginx to nginx and configures nginx to listen on port 8080
-sudo sed -i "s/#user www-data;/user nginx;/" /etc/nginx/nginx.conf
-new_port='listen 8080 default_server;'
-sudo sed -i "s/listen 80 default_server;/$new_port/" /etc/nginx/sites-available/default
+sed -i "s/user www-data/user nginx/g" /etc/nginx/nginx.conf
+# new_port='listen 8080 default_server;'
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 chmod 644 /etc/nginx/nginx.conf
+pkill apche2
 sudo -u nginx service nginx restart
