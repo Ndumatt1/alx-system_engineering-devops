@@ -3,4 +3,5 @@
 sudo sed -i "s/#user www-data;/user nginx;/" /etc/nginx/nginx.conf
 new_port='listen 8080 default_server;'
 sudo sed -i "s/listen 80 default_server;/$new_port/" /etc/nginx/sites-available/default
+chmod 644 /etc/nginx/nginx.conf
 sudo -u nginx service nginx restart
