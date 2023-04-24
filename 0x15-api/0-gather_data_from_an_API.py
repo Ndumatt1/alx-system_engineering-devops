@@ -18,7 +18,7 @@ if __name__ == '__main__':
     total_task = len(user_todo)
     task_done = sum(todo['completed'] for todo in user_todo)
 
-    print('Employee {} is done with tasks({}/{})'
+    print('Employee {} is done with tasks({}/{}):'
           .format(users['name'], task_done, total_task))
     completed_todos = filter(lambda todo: todo['completed'], user_todo)
     for title in completed_todos:
