@@ -6,20 +6,23 @@ import requests
 from sys import argv
 
 if __name__ == '__main__':
-    ids = int(argv[1])
+    user_id = int(argv[1])
+    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
     todo_url = 'https://jsonplaceholder.typicode.com/todos'
-    users_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(ids)
+    users = requests.get(user_url).json()
     todos = requests.get(todo_url).json()
-    users = requests.get(users_url).json()
-    user_todo = []
-    for todo in todos:
-        if todo['userId'] == ids:
-            user_todo.append(todo)
-    total_task = len(user_todo)
-    task_done = sum(todo['completed'] for todo in user_todo)
+    total = 0
+    task = 0
+    completed_list = []
+    user_name = users.get('name')
 
-    print('Employee {} is done with tasks({}/{}):'
-          .format(users['name'], task_done, total_task))
-    completed_todos = filter(lambda todo: todo['completed'], user_todo)
-    for title in completed_todos:
-        print('\t {}'.format(title['title']))
+    for todo in todos:
+        if todo.get("userId") == user_id:
+            total += 1
+            if todo.get("completed"):
+                task += 1
+                completed_list.append(todo)
+    print('Employee {} is done with tasks({}/{}):'.format(
+            user_name, task, total))
+    for item in completed_list:
+        print('\t {}'.format(item.get("title")))
