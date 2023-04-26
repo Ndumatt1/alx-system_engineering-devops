@@ -3,10 +3,10 @@
 list progress
 '''
 import requests
-from sys import argv
+import sys
 
 if __name__ == '__main__':
-    user_id = int(argv[1])
+    user_id = int(sys.argv[1])
     user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
     todo_url = 'https://jsonplaceholder.typicode.com/todos'
     users = requests.get(user_url).json()
@@ -14,7 +14,6 @@ if __name__ == '__main__':
     total = 0
     task = 0
     completed_list = []
-    user_name = users.get('name')
 
     for todo in todos:
         if todo.get("userId") == user_id:
@@ -23,6 +22,6 @@ if __name__ == '__main__':
                 task += 1
                 completed_list.append(todo)
     print('Employee {} is done with tasks({}/{}):'.format(
-            user_name, task, total))
+            users.get('name'), task, total))
     for item in completed_list:
         print('\t {}'.format(item.get("title")))
