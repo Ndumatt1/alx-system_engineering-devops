@@ -63,8 +63,9 @@ location /hbnb_static { alias /data/web_static/current/;}
 		proxy_pass http://localhost:5001;
 	}
 
-	location /api/ {
+	location /api/v1/ {
 		proxy_pass http://localhost:5002;
+		add_header 'Access-Control-Allow-Origin' '*';
 	}
 
 	# pass PHP scripts to FastCGI server
